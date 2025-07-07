@@ -21,7 +21,7 @@ export default function Hero() {
 
       <pre className="text-green-400 text-sm md:text-base mb-4 select-none">
         <code>
-          {`// Hi, I'm Peace — Full-Stack Developer\n// 5 years crafting scalable apps\n\n`}
+          {`// Hi, I'm Peace — Full-Stack Developer\n// 5+ years crafting scalable apps\n\n`}
         </code>
       </pre>
 
@@ -38,7 +38,7 @@ export default function Hero() {
           location: <span className="text-green-400">'South Africa'</span>,
         </span>
         <span className="pl-6 block text-gray-300">
-          experience: <span className="text-green-400">5</span>,
+          experience: <span className="text-green-400">5+</span>,
         </span>
         <span className="text-yellow-400">{"};"}</span>
         <span className="cursor text-white">|</span>

@@ -16,7 +16,12 @@ import {
   SiNotion,
   SiJest,
   SiGithubactions,
+  SiMongodb,
+  SiPostgresql,
+  SiExpress,
+  SiRedis,
 } from "react-icons/si";
+import { FaAws } from "react-icons/fa";
 
 const skillIcons: Record<string, JSX.Element> = {
   React: <SiReact />,
@@ -35,14 +40,20 @@ const skillIcons: Record<string, JSX.Element> = {
   Figma: <SiFigma />,
   Notion: <SiNotion />,
   "Testing (Jest)": <SiJest />,
+  MongoDB: <SiMongodb />,
+  PostgreSQL: <SiPostgresql />,
+  Express: <SiExpress />,
+  Redis: <SiRedis />,
+  AWS: <FaAws />, // ✅ Updated to use FaAws
 };
 
 export default function Skills() {
   const skills = {
     Frontend: ["React", "Next.js", "Tailwind CSS", "TypeScript"],
-    Backend: ["Node.js", "Supabase", "Firebase", "Prisma"],
-    DevOps: ["Vercel", "GitHub", "CI/CD", "Docker (basic)"],
-    Tools: ["VSCode", "Postman", "Figma", "Notion"],
+    Backend: ["Node.js", "Supabase", "Firebase", "Prisma", "Express"],
+    "Databases & API": ["MongoDB", "PostgreSQL", "Redis"],
+    DevOps: ["Vercel", "GitHub", "CI/CD", "Docker (basic)", "AWS"],
+    Tools: ["Postman", "Figma", "Notion"],
   };
 
   return (

@@ -33,10 +33,17 @@ export default function TopNav({ currentIndex, setCurrentIndex }: TopNavProps) {
       {/* Navbar */}
       <nav className="fixed top-0 left-0 w-full z-50 bg-black/30 backdrop-blur-md shadow-md border-b border-white/10">
         <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-          {/* Logo */}
-          <span className="text-2xl font-extrabold tracking-wide bg-gradient-to-r from-gray-200 via-gray-400 to-gray-100 text-transparent bg-clip-text drop-shadow">
+          {/* Logo as button */}
+          <button
+            onClick={() => {
+              setCurrentIndex(0);
+              setMenuOpen(false);
+            }}
+            className="text-2xl font-extrabold tracking-wide bg-gradient-to-r from-gray-200 via-gray-400 to-gray-100 text-transparent bg-clip-text drop-shadow cursor-pointer"
+            aria-label="Go to Home"
+          >
             Dev Peace
-          </span>
+          </button>
 
           {/* Hamburger (Mobile) */}
           <div className="md:hidden">

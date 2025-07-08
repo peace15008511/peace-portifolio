@@ -13,56 +13,90 @@ import {
   SiDocker,
   SiPostman,
   SiFigma,
-  SiNotion,
-  SiJest,
-  SiGithubactions,
   SiMongodb,
   SiPostgresql,
   SiExpress,
+  SiGraphql,
+  SiRedux,
+  SiSpringboot,
+  SiGin,
+  SiGoland,
+  SiGithubactions,
+  SiJenkins,
   SiRedis,
 } from "react-icons/si";
-import { FaAws } from "react-icons/fa";
+import { FaAws, FaLinux, FaGitAlt, FaJava, FaJsSquare } from "react-icons/fa";
 
 const skillIcons: Record<string, JSX.Element> = {
   React: <SiReact />,
+  "React Native": <SiReact />,
   "Next.js": <SiNextdotjs />,
   "Tailwind CSS": <SiTailwindcss />,
   TypeScript: <SiTypescript />,
+  JavaScript: <FaJsSquare />,
   "Node.js": <SiNodedotjs />,
   Supabase: <SiSupabase />,
   Firebase: <SiFirebase />,
   Prisma: <SiPrisma />,
   Vercel: <SiVercel />,
   GitHub: <SiGithub />,
-  "CI/CD": <SiGithubactions />,
   "Docker (basic)": <SiDocker />,
   Postman: <SiPostman />,
   Figma: <SiFigma />,
-  Notion: <SiNotion />,
-  "Testing (Jest)": <SiJest />,
   MongoDB: <SiMongodb />,
   PostgreSQL: <SiPostgresql />,
-  Express: <SiExpress />,
   Redis: <SiRedis />,
-  AWS: <FaAws />, // ✅ Updated to use FaAws
+  Express: <SiExpress />,
+  GraphQL: <SiGraphql />,
+  Redux: <SiRedux />,
+  Java: <FaJava />,
+  Golang: <SiGoland />,
+  Linux: <FaLinux />,
+  Git: <FaGitAlt />,
+  "Spring Boot": <SiSpringboot />,
+  Gin: <SiGin />,
+  "CI/CD": <SiGithubactions />,
+  Jenkins: <SiJenkins />,
+  AWS: <FaAws />,
 };
 
 export default function Skills() {
   const skills = {
-    Frontend: ["React", "Next.js", "Tailwind CSS", "TypeScript"],
-    Backend: ["Node.js", "Supabase", "Firebase", "Prisma", "Express"],
+    Languages: ["Java", "Golang", "JavaScript", "TypeScript"],
+    Frontend: [
+      "React",
+      "React Native",
+      "Next.js",
+      "Tailwind CSS",
+      "TypeScript",
+      "Redux",
+      "GraphQL",
+    ],
+    Backend: [
+      "Node.js",
+      "Supabase",
+      "Firebase",
+      "Prisma",
+      "Express",
+      "GraphQL",
+      "Spring Boot",
+      "Gin",
+    ],
     "Databases & API": ["MongoDB", "PostgreSQL", "Redis"],
-    DevOps: ["Vercel", "GitHub", "CI/CD", "Docker (basic)", "AWS"],
-    Tools: ["Postman", "Figma", "Notion"],
+    DevOps: ["Vercel", "GitHub", "CI/CD", "Docker (basic)", "AWS", "Jenkins"],
+    Tools: ["Postman", "Figma", "Linux", "Git"],
   };
 
   return (
-    <div className="w-full max-w-5xl px-2 md:px-4">
-      <h3 className="text-3xl md:text-4xl font-bold mb-10 text-center bg-gradient-to-r from-gray-200 via-gray-400 to-gray-100 text-transparent bg-clip-text drop-shadow">
+    <section
+      id="skills"
+      className="relative h-screen w-full overflow-y-auto scroll-smooth text-white pt-24 pb-16 px-6 flex flex-col items-center"
+    >
+      <h3 className="text-3xl md:text-4xl font-bold mb-10 text-center bg-gradient-to-r from-gray-200 via-gray-400 to-gray-100 text-transparent bg-clip-text drop-shadow-lg">
         Skills & Tools
       </h3>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-6xl w-full">
         {Object.entries(skills).map(([category, items]) => (
           <div key={category}>
             <h4 className="text-xl font-semibold text-gray-200 mb-4">
@@ -84,6 +118,6 @@ export default function Skills() {
           </div>
         ))}
       </div>
-    </div>
+    </section>
   );
 }

@@ -1,65 +1,112 @@
-export default function Hero() {
+"use client";
+
+import Image from "next/image";
+
+export default function Hero({ goToProjects }: { goToProjects: () => void }) {
   return (
     <section
-      className="relative h-screen w-full pt-16 bg-gradient-to-br from-gray-900 via-black to-gray-950 text-white px-4 flex flex-col items-center justify-center font-mono text-center"
-      style={{
-        backgroundImage:
-          "repeating-linear-gradient(0deg, rgba(255,255,255,0.04) 0, rgba(255,255,255,0.04) 1px, transparent 1px, transparent 20px), repeating-linear-gradient(90deg, rgba(255,255,255,0.04) 0, rgba(255,255,255,0.04) 1px, transparent 1px, transparent 20px)",
-      }}
+      id="hero"
+      className="relative h-screen w-full overflow-y-auto scroll-smooth text-white pt-24 pb-16 px-6 flex flex-col items-center"
     >
       <style>
         {`
-            @keyframes blink {
-              0%, 50%, 100% { opacity: 1; }
-              25%, 75% { opacity: 0; }
-            }
-            .cursor {
-              animation: blink 1.2s step-start infinite;
-            }
+          @keyframes blink {
+            0%, 50%, 100% { opacity: 1; }
+            25%, 75% { opacity: 0; }
+          }
+          .cursor {
+            animation: blink 1.2s step-start infinite;
+          }
         `}
       </style>
 
-      <pre className="text-green-400 text-sm md:text-base mb-4 select-none">
-        <code>
-          {`// Hi, I'm Peace — Full-Stack Developer\n// 5+ years crafting scalable apps\n\n`}
-        </code>
-      </pre>
+      {/* Optional animated background */}
+      <div className="absolute inset-0 -z-10 bg-gradient-to-br from-[#0a0a0a] via-black to-[#1a1a1a]" />
 
-      <h1 className="text-2xl md:text-3xl font-extrabold leading-snug mb-3">
-        <span className="text-red-500">const </span>
-        <span className="text-cyan-400">Peace</span>
-        <span className="text-red-500"> = </span>
-        <span className="text-yellow-400">{"{"}</span>
-        <br />
-        <span className="pl-6 block text-gray-300">
-          role: <span className="text-green-400">'Full-Stack Developer'</span>,
-        </span>
-        <span className="pl-6 block text-gray-300">
-          location: <span className="text-green-400">'South Africa'</span>,
-        </span>
-        <span className="pl-6 block text-gray-300">
-          experience: <span className="text-green-400">5+</span>,
-        </span>
-        <span className="text-yellow-400">{"};"}</span>
-        <span className="cursor text-white">|</span>
-      </h1>
+      {/* Content */}
+      <div className="flex flex-col lg:flex-row items-center justify-center gap-12 max-w-6xl w-full">
+        {/* Left: Image and Text */}
+        <div className="flex flex-col items-center space-y-4">
+          <div className="relative w-40 h-40 md:w-64 md:h-64 rounded-full overflow-hidden border-4 border-gray-700 shadow-2xl">
+            <Image
+              src="/images/peace_color.jpg"
+              alt="Peace Mulalo"
+              fill
+              className="object-cover"
+              priority
+            />
+          </div>
+          <div className="text-center">
+            <h2 className="text-xl md:text-2xl font-bold text-gray-100">
+              Peace Mulovhedzi
+            </h2>
+            <p className="text-sm text-gray-400">
+              Full-Stack Developer • Problem Solver
+            </p>
+          </div>
+        </div>
 
-      <p className="mt-5 max-w-xl text-gray-300 text-xs md:text-sm">
-        I build clean, scalable web applications with a focus on seamless user
-        experiences and maintainable code. Skilled in React, Next.js, and
-        Tailwind CSS on the frontend, alongside Node.js, Supabase, and Prisma
-        for backend development. Experienced working with both SQL and NoSQL
-        databases to design efficient, robust data models. Passionate about
-        leveraging modern tools and best practices to deliver performant,
-        reliable solutions that solve real problems and drive business value.
-      </p>
+        {/* Right: Editor-like Card */}
+        <div className="w-full max-w-xl bg-zinc-900 rounded-xl shadow-lg border border-white/10 font-mono p-6 text-sm relative overflow-x-auto">
+          <div className="flex space-x-2 mb-4">
+            <span className="w-3 h-3 bg-red-500 rounded-full"></span>
+            <span className="w-3 h-3 bg-yellow-400 rounded-full"></span>
+            <span className="w-3 h-3 bg-green-500 rounded-full"></span>
+          </div>
 
-      <button className="mt-8 px-5 py-1.5 text-sm bg-red-600 rounded-md font-semibold hover:bg-red-700 transition-colors duration-300">
-        View My Work
-      </button>
+          <pre className="text-[13px] whitespace-pre-wrap">
+            <code className="select-none">
+              <span className="text-yellow-300">
+                // Hi, I'm Peace — Full-Stack Developer
+              </span>
+              {"\n"}
+              <span className="text-yellow-300">
+                // 5+ years crafting scalable apps
+              </span>
+              {"\n\n"}
 
-      <div className="absolute bottom-6 left-0 right-0 text-xs text-gray-600 select-none font-mono">
-        &lt;/&gt; Crafted with passion and precision
+              <span className="text-red-400">const </span>
+              <span className="text-blue-400">Peace</span>
+              <span className="text-white"> = </span>
+              <span className="text-orange-400">{"{"}</span>
+              {"\n"}
+              <span className="pl-4 text-white">
+                role:{" "}
+                <span className="text-blue-400">'Full-Stack Developer'</span>,
+              </span>
+              {"\n"}
+              <span className="pl-4 text-white">
+                location: <span className="text-blue-400">'South Africa'</span>,
+              </span>
+              {"\n"}
+              <span className="pl-4 text-white">
+                experience: <span className="text-blue-400">'5+ years'</span>,
+              </span>
+              {"\n"}
+              <span className="text-orange-400">{"};"}</span>
+              <span className="cursor text-white">|</span>
+              {"\n\n"}
+
+              <span className="text-gray-400">
+                /** I am a dedicated and passionate full-stack developer who
+                believes in building software that not only works flawlessly but
+                also delivers meaningful experiences. With a strong commitment
+                to quality and continuous growth, I approach every project with
+                curiosity, creativity, and resilience. I thrive in collaborative
+                teams, enjoy solving complex problems, and am driven by a desire
+                to turn ideas into impactful, scalable solutions that make a
+                difference. */
+              </span>
+            </code>
+          </pre>
+
+          <button
+            onClick={goToProjects}
+            className="mt-6 px-5 py-2 text-sm bg-gradient-to-tr from-red-600 via-pink-600 to-red-700 rounded-md font-semibold hover:scale-105 transition duration-300 shadow-md"
+          >
+            View My Work
+          </button>
+        </div>
       </div>
     </section>
   );

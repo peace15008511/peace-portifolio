@@ -4,35 +4,36 @@ type Project = {
   title: string;
   description: string;
   href: string;
-  tech: string[];
 };
 
 const projects: Project[] = [
   {
     title: "Mobiza Rides",
     description:
-      "A full-stack delivery bike rental platform with real payment integration, business logic, and weekly rental flows.",
+      "Delivery bike rental platform with real payments and business logic.",
     href: "https://mobiza-rides.vercel.app/",
-    tech: [
-      "Next.js App Router",
-      "Supabase backend",
-      "Tailwind CSS design system",
-      "PayFast integration",
-      "Hosted on Vercel",
-    ],
   },
   {
     title: "Dietitian Lufuno",
     description:
-      "A professional portfolio site for a dietitian with booking and services. Fast, responsive and client-ready.",
+      "Professional portfolio site for a dietitian with booking features.",
     href: "https://dietatian-web.vercel.app/",
-    tech: [
-      "Next.js App Router",
-      "Responsive mobile-first design",
-      "Tailwind CSS UI",
-      "Deployed on Vercel",
-    ],
   },
+  {
+    title: "Fashion School",
+    description:
+      "Elegant promotional website for a creative fashion training academy.",
+    href: "https://fashion-school.vercel.app",
+  },
+];
+
+// Define a small array of distinct background colors for cards
+const bgColors = [
+  "bg-zinc-900",
+  "bg-gray-800",
+  "bg-neutral-900",
+  "bg-zinc-800",
+  "bg-gray-900",
 ];
 
 export default function Projects() {
@@ -41,7 +42,7 @@ export default function Projects() {
       id="projects"
       className="relative h-screen w-full overflow-y-auto scroll-smooth text-white pt-24 pb-16 px-6 flex flex-col items-center"
     >
-      {/* ✨ Custom Background Gradient + Metallic Overlay */}
+      {/* ✨ Metallic background animation */}
       <style>
         {`
           .metallic-bg::before {
@@ -79,22 +80,26 @@ export default function Projects() {
         Projects
       </h2>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl w-full">
-        {projects.map(({ title, description, href, tech }) => (
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 w-full max-w-6xl">
+        {projects.map(({ title, description, href }, index) => (
           <a
             key={title}
             href={href}
             target="_blank"
             rel="noopener noreferrer"
-            className="bg-zinc-900 hover:bg-zinc-800 transition p-6 rounded-lg shadow-lg border border-gray-600/30 backdrop-blur-md"
+            className={`${
+              bgColors[index % bgColors.length]
+            } hover:brightness-110 transition p-4 rounded-md shadow-md border border-gray-600/30 backdrop-blur-sm flex flex-col justify-between`}
           >
-            <h3 className="text-2xl font-bold text-slate-100 mb-2">{title}</h3>
-            <p className="text-gray-300 mb-3">{description}</p>
-            <ul className="text-sm text-gray-400 list-disc pl-5 space-y-1">
-              {tech.map((item, idx) => (
-                <li key={idx}>{item}</li>
-              ))}
-            </ul>
+            <div>
+              <h3 className="text-lg font-semibold text-slate-100 mb-1">
+                {title}
+              </h3>
+              <p className="text-sm text-gray-300">{description}</p>
+            </div>
+            <span className="mt-4 text-xs text-sky-400 hover:underline">
+              Click to preview →
+            </span>
           </a>
         ))}
       </div>
@@ -108,8 +113,8 @@ export default function Projects() {
           className="text-sky-400 underline hover:text-sky-300"
         >
           Vercel
-        </a>{" "}
-        for optimal performance and global reach.
+        </a>
+        .
       </p>
     </section>
   );

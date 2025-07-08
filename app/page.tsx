@@ -2,19 +2,17 @@
 
 import { useState } from "react";
 import Hero from "@/components/Hero";
-import About from "@/components/About";
+import Skills from "@/components/Skills";
 import Projects from "@/components/Projects";
 import Contact from "@/components/Contact";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import TopNav from "@/components/TopNav";
 
-const sections = [<Hero />, <About />, <Projects />, <Contact />];
-
 export default function HomePage() {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const next = () => {
-    if (currentIndex < sections.length - 1) {
+    if (currentIndex < 3) {
       setCurrentIndex((prev) => prev + 1);
     }
   };
@@ -25,9 +23,15 @@ export default function HomePage() {
     }
   };
 
+  const sections = [
+    <Hero goToProjects={() => setCurrentIndex(2)} />,
+    <Skills />,
+    <Projects />,
+    <Contact />,
+  ];
+
   return (
     <div className="relative h-screen overflow-hidden bg-black text-white">
-      {/* Top Navigation with section control */}
       <TopNav currentIndex={currentIndex} setCurrentIndex={setCurrentIndex} />
 
       {/* Section Container */}
@@ -46,7 +50,7 @@ export default function HomePage() {
       {currentIndex > 0 && (
         <button
           onClick={prev}
-          className="absolute left-4 top-1/2 -translate-y-1/2 z-50 bg-white text-black p-2 rounded-full hover:bg-gray-300 transition"
+          className="absolute left-4 top-1/2 -translate-y-1/2 z-50 bg-white/70 text-black p-2 rounded-full hover:bg-white/90 transition shadow-md"
         >
           <ArrowLeft size={24} />
         </button>
@@ -54,7 +58,7 @@ export default function HomePage() {
       {currentIndex < sections.length - 1 && (
         <button
           onClick={next}
-          className="absolute right-4 top-1/2 -translate-y-1/2 z-50 bg-white text-black p-2 rounded-full hover:bg-gray-300 transition"
+          className="absolute right-4 top-1/2 -translate-y-1/2 z-50 bg-white/70 text-black p-2 rounded-full hover:bg-white/90 transition shadow-md"
         >
           <ArrowRight size={24} />
         </button>

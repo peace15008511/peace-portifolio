@@ -23,7 +23,13 @@ const projects: Project[] = [
     title: "Fashion School",
     description:
       "Elegant promotional website for a creative fashion training academy.",
-    href: "https://fashion-school.vercel.app",
+    href: "https://fashion-school.vercel.app/",
+  },
+  {
+    title: "Mini Store App",
+    description:
+      "A modern storefront with cart functionality using Zustand and Fake Store API.",
+    href: "https://mini-store-plum.vercel.app/",
   },
 ];
 
